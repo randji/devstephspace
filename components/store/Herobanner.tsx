@@ -133,7 +133,7 @@ const Herobanner = () => {
           viewBox="0 0 800 300"
           width="100%"
           height="100%"
-          className="absolute flex top-[25%]  md:top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 md:justify-center md:items-center text-transparent bg-clip-text bg-white/80 text-xs
+          className="absolute flex top-[25%]  md:top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 md:justify-center md:items-center bg-clip-text bg-white/80 text-xs text-black
            md:text-2xl font-lato font-bold z-20 mt-20 md:mt-20 text-wrap"
         >
           <defs>
@@ -169,7 +169,7 @@ const Herobanner = () => {
           </text>
 
           {/* vidéo en fond visible seulement à travers le texte */}
-          <foreignObject width="800" height="300" clipPath="url(#text-clip1)">
+          {/* <foreignObject width="800" height="300" clipPath="url(#text-clip1)">
             <video
               autoPlay
               muted
@@ -179,15 +179,15 @@ const Herobanner = () => {
             >
               <source src="/video/peintre.mp4" type="video/mp4" />
             </video>
-          </foreignObject>
+          </foreignObject> */}
         </svg>
-        <div className="bg-white/80 absolute bottom-3 md:-bottom-10 opacity-90 left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[150px] md:h-[150px] rounded-full flex items-center justify-center">
+        <div className="bg-white/80 absolute -bottom-5 md:-bottom-10 opacity-90 left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[150px] md:h-[150px] rounded-full flex items-center justify-center border-2 border-black">
           <Image
             src="/logoDSteph.png"
             alt="Logo"
             width={100}
             height={100}
-            className="opacity-90 w-[50px] m-1 md:w-[100px] md:m-2"
+            className="opacity-90 w-[80px] m-1 md:w-[100px] md:m-2"
           />
         </div>
       </div>
