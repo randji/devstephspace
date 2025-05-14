@@ -1,11 +1,49 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 const Herobanner = () => {
+  const [textPosition, setTextPosition] = useState({ x: 30, y: 180 });
+  const [subtitlePosition, setSubtitlePosition] = useState({ x: 50, y: 180 });
+
+  useEffect(() => {
+    // Fonction pour ajuster la position du texte en fonction de la largeur de l'écran
+    const handleResize = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      // Calcul du centre vertical en fonction de la hauteur du viewBox (300)
+      const centerY = 150; // Le centre vertical du viewBox est à 150
+
+      if (width < 640) {
+        // sm
+        setTextPosition({ x: 20, y: centerY });
+        setSubtitlePosition({ x: 30, y: centerY + 60 }); // Positionner le sous-titre en dessous
+      } else if (width < 768) {
+        // md
+        setTextPosition({ x: 25, y: centerY });
+        setSubtitlePosition({ x: 40, y: centerY + 60 });
+      } else if (width < 1024) {
+        // lg
+        setTextPosition({ x: 30, y: centerY });
+        setSubtitlePosition({ x: 50, y: centerY + 70 });
+      } else {
+        // xl et plus grand
+        setTextPosition({ x: 40, y: centerY });
+        setSubtitlePosition({ x: 60, y: centerY + 80 });
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Appel initial pour définir la position
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <section className="relative h-auto md:h-[100vh] w-full flex shadow-2xl">
-      <div className="relative w-full h-screen flex flex-col md:flex-row items-center ">
+    <section className="relative md:h-[100vh] w-full flex flex-col items-center justify-center shadow-2xl">
+      <div className="relative w-full md:h-[100vh] flex flex-col md:flex-row items-center">
         {/* Vidéo en arrière-plan avec opacité de 50% */}
         <video
           autoPlay
@@ -26,7 +64,7 @@ const Herobanner = () => {
         >
           <source src="/video/peintre.mp4" type="video/mp4" />
         </video>
-        
+
         <video
           autoPlay
           muted
@@ -41,15 +79,15 @@ const Herobanner = () => {
           viewBox="0 0 800 300"
           width="100%"
           height="100%"
-          className="absolute max-w-[800px] h-auto z-10 flex top-[12%] md:top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 md:justify-center md:items-center text-transparent bg-clip-text text-6xl md:text-9xl font-bold text-nowrap"
+          className="absolute max-w-[800px] h-auto z-10 flex top-[22%] md:top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 md:justify-center md:items-center text-transparent bg-clip-text text-6xl md:text-9xl font-lato font-bold text-nowrap"
         >
           <defs>
             <clipPath id="text-clip">
               <text
-                x="30"
-                y="180"
+                x={textPosition.x}
+                y={textPosition.y}
                 fontSize="120"
-                fontFamily="Arial Black, sans-serif"
+                fontFamily="Lato, sans-serif"
                 stroke="white"
                 strokeWidth="2"
                 fill="none"
@@ -64,10 +102,10 @@ const Herobanner = () => {
 
           {/* Texte avec contour blanc */}
           <text
-            x="30"
-            y="180"
+            x={textPosition.x}
+            y={textPosition.y}
             fontSize="120"
-            fontFamily="Arial Black, sans-serif"
+            fontFamily="Lato, sans-serif"
             stroke="white"
             strokeWidth="6"
             fill="none"
@@ -82,33 +120,31 @@ const Herobanner = () => {
               muted
               loop
               playsInline
-              className="absolute top-0 left-0 w-full h-full object-cover  z-0"
+              className="absolute top-0 left-0 w-full h-full object-cover opacity-50 z-0"
             >
               <source src="/video/danseur.mp4" type="video/mp4" />
             </video>
           </foreignObject>
         </svg>
 
-
         {/* --------------------------------------------------- */}
-
 
         <svg
           viewBox="0 0 800 300"
           width="100%"
           height="100%"
-          className="absolute flex top-[20%]  md:top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 md:justify-center md:items-center text-transparent bg-clip-text bg-white/80 text-xs
-           md:text-2xl font-bold z-20 mt-20 md:mt-20 text-wrap"
+          className="absolute flex top-[25%]  md:top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 md:justify-center md:items-center text-transparent bg-clip-text bg-white/80 text-xs
+           md:text-2xl font-lato font-bold z-20 mt-20 md:mt-20 text-wrap"
         >
           <defs>
             <clipPath id="text-clip1">
               <text
-                x="50"
-                y="180"
-                fontSize="40"
-                fontFamily="Arial Black, sans-serif"
+                x={subtitlePosition.x}
+                y={subtitlePosition.y}
+                fontSize="50"
+                fontFamily="Lato, sans-serif"
                 stroke="white"
-                strokeWidth="2"
+                strokeWidth="1"
                 fill="none"
               >
                 Votre Identité créative en ligne
@@ -121,12 +157,12 @@ const Herobanner = () => {
 
           {/* Texte avec contour blanc */}
           <text
-            x="50"
-            y="180"
-            fontSize="40"
-            fontFamily="Arial Black, sans-serif"
+            x={subtitlePosition.x}
+            y={subtitlePosition.y}
+            fontSize="50"
+            fontFamily="Lato, sans-serif"
             stroke="white"
-            strokeWidth="6"
+            strokeWidth="1"
             fill="none"
           >
             Votre Identité créative en ligne
@@ -139,12 +175,21 @@ const Herobanner = () => {
               muted
               loop
               playsInline
-              className="absolute top-0 left-0 w-full h-full object-cover  z-0"
+              className="absolute top-0 left-0 w-full h-full object-cover opacity-50 z-0"
             >
               <source src="/video/peintre.mp4" type="video/mp4" />
             </video>
           </foreignObject>
         </svg>
+        <div className="bg-white/80 absolute bottom-3 md:-bottom-10 opacity-90 left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[150px] md:h-[150px] rounded-full flex items-center justify-center">
+          <Image
+            src="/logoDSteph.png"
+            alt="Logo"
+            width={100}
+            height={100}
+            className="opacity-90 w-[50px] m-1 md:w-[100px] md:m-2"
+          />
+        </div>
       </div>
     </section>
   );
