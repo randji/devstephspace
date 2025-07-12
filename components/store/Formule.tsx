@@ -1,32 +1,41 @@
-"use client"
+"use client";
 
-import { Play, ChevronDown, ChevronUp } from 'lucide-react'
-import { useState } from "react"
+import { Play, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
 
-import { Button } from "@/components/ui/Button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/Button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export function Formule() {
-  const [isDetailsVisible, setIsDetailsVisible] = useState(false)
+  const [isDetailsVisible, setIsDetailsVisible] = useState(false);
 
   const toggleDetails = () => {
-    setIsDetailsVisible(!isDetailsVisible)
-  }
+    setIsDetailsVisible(!isDetailsVisible);
+  };
 
   return (
-    <Card className="w-full max-w-lg overflow-hidden transition-all duration-300 hover:shadow-lg">
-      <CardHeader className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
-        <CardTitle className="text-center text-2xl font-bold">Formule Danseur</CardTitle>
+    <Card className="w-full h-64 sm:w-[300px] sm:h-[600px] md:h-96 lg:h-[500px] overflow-hidden transition-all duration-300 hover:shadow-lg">
+      <CardHeader className=" text-black p-6">
+        <CardTitle className="text-center text-2xl font-bold">
+          Formule Danseur
+        </CardTitle>
       </CardHeader>
-      <div className="relative aspect-video w-full overflow-hidden bg-black">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <Button variant="outline" size="icon" className="h-16 w-16 rounded-full bg-white/20 backdrop-blur-sm">
-            <Play className="h-8 w-8 text-white" />
-          </Button>
-        </div>
+      <div className="relative overflow-hidden bg-black ">
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-        <video poster="/placeholder.svg?height=300&width=500" className="h-full w-full object-cover opacity-80">
-          <source src="#" type="video/mp4" />
+        <video
+          poster="/video/serviceDanse.mp4"
+          className="h-[400px] sm:w-[500px] w-full object-contain opacity-80"
+          autoPlay
+          loop
+          muted
+        >
+          <source src="/video/serviceDanse.mp4" type="video/mp4" />
           Votre navigateur ne prend pas en charge la lecture vidéo.
         </video>
       </div>
@@ -66,9 +75,13 @@ export function Formule() {
           className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white transition-all hover:from-purple-700 hover:to-indigo-700 flex items-center gap-2"
         >
           {isDetailsVisible ? "Masquer les détails" : "En savoir plus"}
-          {isDetailsVisible ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+          {isDetailsVisible ? (
+            <ChevronUp className="h-4 w-4" />
+          ) : (
+            <ChevronDown className="h-4 w-4" />
+          )}
         </Button>
       </CardFooter>
     </Card>
-  )
+  );
 }

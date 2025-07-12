@@ -9,8 +9,6 @@ const Service = () => {
         "Votre site web travaille-t-il aussi efficacement que vous pour votre
         association ou votre art ?"
       </h1>
-      
-      <CardService />
     </section>
   );
 };
