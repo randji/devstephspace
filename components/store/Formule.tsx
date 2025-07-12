@@ -1,6 +1,6 @@
 "use client";
 
-import { Play, ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/Button";
