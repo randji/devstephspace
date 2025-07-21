@@ -15,7 +15,6 @@ const Herobanner = () => {
     // Fonction pour ajuster la position du texte en fonction de la largeur de l'écran
     const handleResize = () => {
       const width = window.innerWidth;
-      
 
       // Calcul du centre vertical en fonction de la hauteur du viewBox (300)
       const centerY = 150; // Le centre vertical du viewBox est à 150
@@ -29,7 +28,7 @@ const Herobanner = () => {
         // md
         setTextPosition({ x: 60, y: centerY });
         setSubtitlePosition({ x: 40, y: centerY + 60 });
-        setRectDimensions({ width: 450, height: 5 });
+        setRectDimensions({ width: 450, height: 50 });
       } else if (width < 1024) {
         // lg
         setTextPosition({ x: 60, y: centerY });
