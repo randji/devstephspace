@@ -3,8 +3,9 @@
 import type React from "react";
 
 import { useState } from "react";
-import { Users, Heart, ChevronDown, X } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import Image from "next/image"; // Importez le composant Image
 
 interface ProfileData {
   id: number;
@@ -26,7 +27,8 @@ const profilesData: ProfileData[] = [
   {
     id: 1,
     name: "Artisan",
-    description: "Montrez votre savoir-faire, présentez vos réalisations et attirez de nouveaux clients grâce à une vitrine claire et professionnelle.",
+    description:
+      "Montrez votre savoir-faire, présentez vos réalisations et attirez de nouveaux clients grâce à une vitrine claire et professionnelle.",
     image: "/Artisan.jpg",
   },
   {
@@ -46,13 +48,15 @@ const profilesData: ProfileData[] = [
   {
     id: 4,
     name: "Artiste",
-    description: "Exposez votre univers, partagez vos créations et développez votre présence en ligne avec un site à votre image.",
+    description:
+      "Exposez votre univers, partagez vos créations et développez votre présence en ligne avec un site à votre image.",
     image: "/Artiste.jpg",
   },
   {
     id: 4,
     name: "Association",
-    description: "Gérez vos activités, membres et événements en toute simplicité grâce à un site pensé pour les besoins associatifs.",
+    description:
+      "Gérez vos activités, membres et événements en toute simplicité grâce à un site pensé pour les besoins associatifs.",
     image: "/Association.jpeg",
   },
 ];
@@ -125,10 +129,12 @@ function ProfileCard({ profile }: ProfileCardProps) {
           isExpanded ? "h-[350px]" : "h-full"
         }`}
       >
-        <img
+        <Image
           src={profile.image || "/placeholder.svg"}
           alt={profile.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          layout="fill" // Permet à l'image de remplir son conteneur
+          objectFit="cover" // Maintient les proportions de l'image
         />
 
         {/* Overlay gradient */}
@@ -145,10 +151,9 @@ function ProfileCard({ profile }: ProfileCardProps) {
 
           {/* Description */}
           <p className="text-gray-200 leading-relaxed mb-6 transition-opacity duration-300 group-hover:opacity-90">
-            {profile.description}
+            Votre site web travaille-t-il aussi efficacement que vous pour votre
+            association ou votre art&nbsp;?
           </p>
-
-        
 
           {/* Bouton d'action */}
           <Button
@@ -165,7 +170,6 @@ function ProfileCard({ profile }: ProfileCardProps) {
         </div>
 
         {/* Animation de particules au hover */}
-        
       </div>
 
       {/* Zone étendue avec la liste d'actions */}
@@ -237,8 +241,6 @@ export default function Component() {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="max-w-7xl mx-auto">
-       
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center">
           {profilesData.map((profile) => (
             <ProfileCard key={profile.id} profile={profile} />
@@ -261,4 +263,3 @@ export default function Component() {
     </div>
   );
 }
-import Image from "next/image";
