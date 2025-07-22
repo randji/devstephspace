@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: ["class"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -7,10 +8,10 @@ module.exports = {
   ],
   theme: {
     container: {
-      center: true,           // Centre le container
-      padding: "2rem",        // Padding par défaut
+      center: true, // Centre le container
+      padding: "2rem", // Padding par défaut
       screens: {
-        "2xl": "1400px",     // Largeur max pour très grands écrans
+        "2xl": "1400px", // Largeur max pour très grands écrans
       },
     },
     extend: {
@@ -50,60 +51,60 @@ module.exports = {
       // 🎨 SYSTÈME DE COULEURS SHADCN/UI
       // Ces couleurs utilisent des variables CSS pour le mode sombre
       colors: {
-        border: "hsl(var(--border))",           // Bordures
-        input: "hsl(var(--input))",             // Champs de saisie
-        ring: "hsl(var(--ring))",               // Anneaux de focus
-        background: "hsl(var(--background))",   // Arrière-plan principal
-        foreground: "hsl(var(--foreground))",   // Texte principal
-        
+        border: "hsl(var(--border))", // Bordures
+        input: "hsl(var(--input))", // Champs de saisie
+        ring: "hsl(var(--ring))", // Anneaux de focus
+        background: "hsl(var(--background))", // Arrière-plan principal
+        foreground: "hsl(var(--foreground))", // Texte principal
+
         // Couleurs primaires (votre marque)
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
-        
+
         // Couleurs secondaires
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
-        
+
         // Couleurs destructives (erreurs, suppressions)
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
-        
+
         // Couleurs atténuées (éléments secondaires)
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
         },
-        
+
         // Couleurs d'accent (highlights)
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        
+
         // Couleurs pour les popovers/modales
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
-        
+
         // Couleurs pour les cartes
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      
+
       // 📐 RAYONS DE BORDURE PERSONNALISÉS
       borderRadius: {
-        lg: "var(--radius)",                    // Grand rayon
-        md: "calc(var(--radius) - 2px)",       // Moyen rayon
-        sm: "calc(var(--radius) - 4px)",       // Petit rayon
+        lg: "var(--radius)", // Grand rayon
+        md: "calc(var(--radius) - 2px)", // Moyen rayon
+        sm: "calc(var(--radius) - 4px)", // Petit rayon
       },
     },
   },
@@ -114,3 +115,4 @@ module.exports = {
   ],
 };
 
+export default config;
