@@ -1,6 +1,6 @@
-import { AnimatedSection } from "@/components/ui/animated-section"
-import { SectionHeader } from "@/components/ui/section-header"
-import Image from "next/image"
+import { AnimatedSection } from "@/components/ui/animated-section";
+import { SectionHeader } from "@/components/ui/section-header";
+import Image from "next/image";
 
 export function AboutMeSection() {
   return (
@@ -14,18 +14,21 @@ export function AboutMeSection() {
           <AnimatedSection direction="left">
             <div className="prose prose-lg text-stone-700 leading-relaxed">
               <p className="mb-6">
-                Passionné par le développement depuis plus de 5 ans, je me spécialise dans la création d'applications
-                web et mobiles modernes. Mon approche combine expertise technique et sens esthétique pour livrer des
-                solutions qui dépassent les attentes.
+                Passionné par le développement depuis plus de 5 ans, je me
+                spécialise dans la création d&apos;applications web et mobiles
+                modernes. Mon approche combine expertise technique et sens
+                esthétique pour livrer des solutions qui dépassent les attentes.
               </p>
               <p className="mb-6">
-                Chaque projet est une opportunité d'innover et de repousser les limites du possible. Je travaille en
-                étroite collaboration avec mes clients pour comprendre leurs besoins et transformer leurs visions en
-                réalité digitale.
+                Chaque projet est une opportunité d&apos;innover et de repousser
+                les limites du possible. Je travaille en étroite collaboration
+                avec mes clients pour comprendre leurs besoins et transformer
+                leurs visions en réalité digitale.
               </p>
               <p>
-                Toujours à l'affût des dernières tendances technologiques, je m'assure que vos projets bénéficient des
-                meilleures pratiques et des outils les plus performants du marché.
+                Toujours à l&apos;affût des dernières tendances technologiques,
+                je m&apos;assure que vos projets bénéficient des meilleures
+                pratiques et des outils les plus performants du marché.
               </p>
             </div>
           </AnimatedSection>
@@ -43,5 +46,5 @@ export function AboutMeSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

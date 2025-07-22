@@ -14,7 +14,7 @@ export interface SiteConfig {
 }
 
 export interface Service {
-  icon: any
+  icon: unknown
   title: string
   description: string
   features: string[]
@@ -28,7 +28,7 @@ export interface Project {
 }
 
 export interface ContactInfo {
-  icon: any
+  icon: unknown
   label: string
   value: string
 }

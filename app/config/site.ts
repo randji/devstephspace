@@ -1,4 +1,4 @@
-import { Code, Smartphone, Globe, Briefcase } from 'lucide-react'
+import { Code } from 'lucide-react'
 import type { SiteConfig, Service, Project } from "@/app/types";
 
 export const siteConfig: SiteConfig = {

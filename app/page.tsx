@@ -1,5 +1,3 @@
-
-
 import HeroBanner from "@/components/store/Herobanner";
 import Service from "@/components/store/Service";
 import ProfileCard from "@/components/store/ProfileCard";
@@ -7,10 +5,10 @@ import { Code, Smartphone, Globe, Briefcase } from "lucide-react";
 import { AboutSection } from "@/components/sections/about-section";
 import { AboutMeSection } from "@/components/sections/about-me-section";
 import { PortfolioSection as ImportedPortfolioSection } from "@/components/sections/portfolio-section";
-import {
-  ContactSection} from "@/components/sections/contact-section";
+import { ContactSection } from "@/components/sections/contact-section";
 import { Footer } from "@/components/layout/footer";
 import { siteConfig } from "@/app/config/site";
+import Image from "next/image";
 
 const services = [
   {
@@ -133,7 +131,13 @@ export function PortfolioSection({ projects }: PortfolioSectionProps) {
     <div>
       {projects.map((project, index) => (
         <div key={index}>
-          <img src={project.image} alt={project.title} />
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={400}
+            height={300}
+            className="rounded-lg"
+          />
           <h3>{project.title}</h3>
           <p>{project.category}</p>
           <ul>
