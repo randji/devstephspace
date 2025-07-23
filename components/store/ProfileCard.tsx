@@ -5,6 +5,7 @@ import type React from "react";
 import { useState } from "react";
 import { ChevronDown, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import Image from "next/image";
 
 interface ProfileData {
   id: number;
@@ -128,12 +129,11 @@ function ProfileCard({ profile }: ProfileCardProps) {
           isExpanded ? "h-[350px]" : "h-full"
         }`}
       >
-        <img
+        <Image
           src={profile.image || "/placeholder.svg"}
           alt={profile.name}
+          fill
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          layout="fill" // Permet à l'image de remplir son conteneur
-          objectFit="cover" // Maintient les proportions de l'image
         />
 
         {/* Overlay gradient */}

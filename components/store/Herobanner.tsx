@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 const Herobanner = () => {
   const [textPosition, setTextPosition] = useState({ x: 30, y: 180 });
@@ -195,7 +196,7 @@ const Herobanner = () => {
           </foreignObject>
         </svg>
         <div className="bg-white/80 absolute -bottom-5 md:-bottom-10 opacity-90 left-1/2 -translate-x-1/2 -translate-y-1/2 md:w-[150px] md:h-[150px] rounded-full flex items-center justify-center border-2 border-black">
-          <img
+          <Image
             src="/logoDSteph.png"
             alt="Logo"
             width={100}
