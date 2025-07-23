@@ -1,7 +1,6 @@
 import HeroBanner from "@/components/store/Herobanner";
 import Service from "@/components/store/Service";
 import ProfileCard from "@/components/store/ProfileCard";
-import { Code, Smartphone, Globe, Briefcase } from "lucide-react";
 import { AboutSection } from "@/components/sections/about-section";
 import { AboutMeSection } from "@/components/sections/about-me-section";
 import { PortfolioSection as ImportedPortfolioSection } from "@/components/sections/portfolio-section";
