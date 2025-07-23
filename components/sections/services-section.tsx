@@ -1,22 +1,31 @@
-import { AnimatedSection } from "@/components/ui/animated-section"
-import { SectionHeader } from "@/components/ui/section-header"
-import { ServiceCard } from "@/components/cards/services-card"
-import { services } from "@/app/config/site"
+import React from "react";
 
-export function ServicesSection() {
+interface Service {
+  icon: React.ComponentType;
+  title: string;
+  description: string;
+  features: string[];
+}
+
+interface ServicesSectionProps {
+  services: Service[];
+}
+
+export function ServicesSection({ services }: ServicesSectionProps) {
   return (
-    <section className="py-20 px-4 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <AnimatedSection>
-          <SectionHeader title="Mes Services" subtitle="Des solutions sur mesure pour tous vos besoins digitaux" />
-        </AnimatedSection>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
-            <ServiceCard key={index} service={service} index={index} />
-          ))}
+    <div>
+      {services.map((service, index) => (
+        <div key={index}>
+          <service.icon />
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+          <ul>
+            {service.features.map((feature, idx) => (
+              <li key={idx}>{feature}</li>
+            ))}
+          </ul>
         </div>
-      </div>
-    </section>
-  )
+      ))}
+    </div>
+  );
 }

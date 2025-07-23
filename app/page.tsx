@@ -9,6 +9,7 @@ import { ContactSection } from "@/components/sections/contact-section";
 import { Footer } from "@/components/layout/footer";
 import { siteConfig } from "@/app/config/site";
 import Image from "next/image";
+import { ServicesSection } from "@/components/sections/services-section";
 
 const services = [
   {
@@ -86,70 +87,6 @@ const projects: Project[] = [
     tech: ["Vue.js", "Laravel", "PostgreSQL"],
   },
 ];
-
-interface Service {
-  icon: React.ComponentType;
-  title: string;
-  description: string;
-  features: string[];
-}
-
-interface ServicesSectionProps {
-  services: Service[];
-}
-
-export function ServicesSection({ services }: ServicesSectionProps) {
-  return (
-    <div>
-      {services.map((service, index) => (
-        <div key={index}>
-          <service.icon />
-          <h3>{service.title}</h3>
-          <p>{service.description}</p>
-          <ul>
-            {service.features.map((feature, idx) => (
-              <li key={idx}>{feature}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-interface PortfolioSectionProps {
-  projects: {
-    title: string;
-    category: string;
-    image: string;
-    tech: string[];
-  }[];
-}
-
-export function PortfolioSection({ projects }: PortfolioSectionProps) {
-  return (
-    <div>
-      {projects.map((project, index) => (
-        <div key={index}>
-          <Image
-            src={project.image}
-            alt={project.title}
-            width={400}
-            height={300}
-            className="rounded-lg"
-          />
-          <h3>{project.title}</h3>
-          <p>{project.category}</p>
-          <ul>
-            {project.tech.map((tech, idx) => (
-              <li key={idx}>{tech}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-  );
-}
 
 export default function page() {
   return (

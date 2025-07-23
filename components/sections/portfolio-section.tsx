@@ -1,33 +1,38 @@
-import { AnimatedSection } from "@/components/ui/animated-section";
-import { SectionHeader } from "@/components/ui/section-header";
-import { ProjectCard } from "@/components/cards/project-cards";
+import Image from "next/image";
+import React from "react";
+
+interface Project {
+  title: string;
+  category: string;
+  image: string;
+  tech: string[];
+}
 
 interface PortfolioSectionProps {
-  projects: {
-    title: string;
-    category: string;
-    image: string;
-    tech: string[];
-  }[];
+  projects: Project[];
 }
 
 export function PortfolioSection({ projects }: PortfolioSectionProps) {
   return (
-    <section className="py-20 px-4 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <AnimatedSection>
-          <SectionHeader
-            title="Mes Réalisations"
-            subtitle="Découvrez quelques-uns de mes projets récents"
+    <div>
+      {projects.map((project, index) => (
+        <div key={index}>
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={400}
+            height={300}
+            className="rounded-lg"
           />
-        </AnimatedSection>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
-          ))}
+          <h3>{project.title}</h3>
+          <p>{project.category}</p>
+          <ul>
+            {project.tech.map((tech, idx) => (
+              <li key={idx}>{tech}</li>
+            ))}
+          </ul>
         </div>
-      </div>
-    </section>
+      ))}
+    </div>
   );
 }
