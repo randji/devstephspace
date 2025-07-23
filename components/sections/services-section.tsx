@@ -14,18 +14,21 @@ interface ServicesSectionProps {
 export function ServicesSection({ services }: ServicesSectionProps) {
   return (
     <div>
-      {services.map((service, index) => (
-        <div key={index}>
-          <service.icon />
-          <h3>{service.title}</h3>
-          <p>{service.description}</p>
-          <ul>
-            {service.features.map((feature, idx) => (
-              <li key={idx}>{feature}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      {services.map((service, index) => {
+        const Icon = service.icon;
+        return (
+          <div key={index}>
+            <Icon />
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+            <ul>
+              {service.features.map((feature, idx) => (
+                <li key={idx}>{feature}</li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
     </div>
   );
 }
