@@ -151,7 +151,7 @@ export function PortfolioSection({ projects }: PortfolioSectionProps) {
   );
 }
 
-export default function Store() {
+export default function page() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-stone-50 to-stone-100">
       <HeroBanner />
