@@ -8,7 +8,6 @@ import { PortfolioSection as ImportedPortfolioSection } from "@/components/secti
 import { ContactSection } from "@/components/sections/contact-section";
 import { Footer } from "@/components/layout/footer";
 import { siteConfig } from "@/app/config/site";
-import Image from "next/image";
 import { ServicesSection } from "@/components/sections/services-section";
 
 const services = [
