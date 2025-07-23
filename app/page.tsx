@@ -10,33 +10,6 @@ import { Footer } from "@/components/layout/footer";
 import { siteConfig } from "@/app/config/site";
 import { ServicesSection } from "@/components/sections/services-section";
 
-const services = [
-  {
-    icon: Code,
-    title: "Développement",
-    description: "Applications web sur mesure avec les dernières technologies",
-    features: ["React/Next.js", "Node.js", "TypeScript", "API REST"],
-  },
-  {
-    icon: Globe,
-    title: "Sites Web",
-    description: "Sites vitrine et e-commerce responsive et optimisés",
-    features: ["Design responsive", "SEO optimisé", "Performance", "CMS"],
-  },
-  {
-    icon: Smartphone,
-    title: "Applications Mobiles",
-    description: "Apps natives et hybrides pour iOS et Android",
-    features: ["React Native", "Flutter", "PWA", "App Store"],
-  },
-  {
-    icon: Briefcase,
-    title: "Consulting",
-    description: "Conseil en architecture et stratégie digitale",
-    features: ["Architecture", "Code Review", "Formation", "Audit"],
-  },
-];
-
 interface Project {
   title: string;
   category: string;
@@ -94,7 +67,7 @@ export default function page() {
       <Service />
       <ProfileCard />
       <AboutSection config={siteConfig} />
-      <ServicesSection services={services} />
+      <ServicesSection />
       <AboutMeSection />
       <ImportedPortfolioSection projects={projects} />
       <ContactSection config={siteConfig} />

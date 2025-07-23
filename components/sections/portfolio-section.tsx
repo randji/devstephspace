@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { ProjectCard } from "@/components/cards/project-cards";
 
 interface Project {
   title: string;
@@ -14,24 +15,9 @@ interface PortfolioSectionProps {
 
 export function PortfolioSection({ projects }: PortfolioSectionProps) {
   return (
-    <div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {projects.map((project, index) => (
-        <div key={index}>
-          <Image
-            src={project.image}
-            alt={project.title}
-            width={400}
-            height={300}
-            className="rounded-lg"
-          />
-          <h3>{project.title}</h3>
-          <p>{project.category}</p>
-          <ul>
-            {project.tech.map((tech, idx) => (
-              <li key={idx}>{tech}</li>
-            ))}
-          </ul>
-        </div>
+        <ProjectCard key={index} project={project} index={index} />
       ))}
     </div>
   );
