@@ -1,5 +1,6 @@
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { SectionHeader } from "@/components/ui/section-header";
+import Image from "next/image";
 
 export function AboutMeSection() {
   return (

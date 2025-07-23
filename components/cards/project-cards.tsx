@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { Project } from "@/app/types";
+import Image from "next/image";
 
 interface ProjectCardProps {
   project: Project;

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import type { SiteConfig } from "@/app/types";
+import Image from "next/image";
 
 interface HeroSectionProps {
   config: SiteConfig;
