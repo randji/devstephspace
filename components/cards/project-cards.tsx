@@ -1,14 +1,13 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import Image from "next/image"
-import type { Project } from "@/app/types"
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import type { Project } from "@/app/types";
 
 interface ProjectCardProps {
-  project: Project
-  index: number
+  project: Project;
+  index: number;
 }
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
@@ -33,15 +32,24 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </div>
 
         <CardContent className="p-6">
-          <Badge variant="secondary" className="mb-3 bg-stone-100 text-stone-700 rounded-full px-3 py-1 text-xs">
+          <Badge
+            variant="secondary"
+            className="mb-3 bg-stone-100 text-stone-700 rounded-full px-3 py-1 text-xs"
+          >
             {project.category}
           </Badge>
 
-          <h3 className="text-xl font-bold text-stone-800 mb-3">{project.title}</h3>
+          <h3 className="text-xl font-bold text-stone-800 mb-3">
+            {project.title}
+          </h3>
 
           <div className="flex flex-wrap gap-2">
             {project.tech.map((tech, idx) => (
-              <Badge key={idx} variant="outline" className="text-xs rounded-full border-stone-300 text-stone-600">
+              <Badge
+                key={idx}
+                variant="outline"
+                className="text-xs rounded-full border-stone-300 text-stone-600"
+              >
                 {tech}
               </Badge>
             ))}
@@ -49,5 +57,5 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </CardContent>
       </Card>
     </motion.div>
-  )
+  );
 }

@@ -1,20 +1,25 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ArrowDown } from "lucide-react"
-import { Button } from "@/components/ui/Button"
-import Image from "next/image"
-import type { SiteConfig } from "@/app/types"
+import { motion } from "framer-motion";
+import { ArrowDown } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import type { SiteConfig } from "@/app/types";
 
 interface HeroSectionProps {
-  config: SiteConfig
+  config: SiteConfig;
 }
 
 export function HeroSection({ config }: HeroSectionProps) {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <Image src="/images/hero-bg.jpg" alt="Hero background" fill className="object-cover" priority />
+        <Image
+          src="/images/hero-bg.jpg"
+          alt="Hero background"
+          fill
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
@@ -72,10 +77,13 @@ export function HeroSection({ config }: HeroSectionProps) {
         transition={{ duration: 1, delay: 1.2 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white"
       >
-        <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}>
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+        >
           <ArrowDown className="w-8 h-8" />
         </motion.div>
       </motion.div>
     </section>
-  )
+  );
 }

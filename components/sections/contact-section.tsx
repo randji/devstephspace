@@ -2,21 +2,10 @@ import { AnimatedSection } from "@/components/ui/animated-section";
 import { SectionHeader } from "@/components/ui/section-header";
 import { ContactForm } from "@/components/forms/contact-form";
 import { ContactInfo } from "@/components/contact/contact-info";
+import type { SiteConfig } from "@/app/types";
 
 interface ContactSectionProps {
-  config: {
-    title: string;
-    subtitle: string;
-    links: {
-      github: string;
-      linkedin: string;
-    };
-    name: string;
-    description: string;
-    email: string;
-    phone: string;
-    address?: string;
-  };
+  config: SiteConfig;
 }
 
 export function ContactSection({ config }: ContactSectionProps) {

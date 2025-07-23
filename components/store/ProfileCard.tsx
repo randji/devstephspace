@@ -5,7 +5,6 @@ import type React from "react";
 import { useState } from "react";
 import { ChevronDown, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import Image from "next/image"; // Importez le composant Image
 
 interface ProfileData {
   id: number;
@@ -129,7 +128,7 @@ function ProfileCard({ profile }: ProfileCardProps) {
           isExpanded ? "h-[350px]" : "h-full"
         }`}
       >
-        <Image
+        <img
           src={profile.image || "/placeholder.svg"}
           alt={profile.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
